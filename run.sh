@@ -23,8 +23,8 @@ build_wp()
 
 install_dir=""
 
+echo "Enter the directory to install the project:"
 while [ "" = "$install_dir" ]; do
-	echo "Enter the directory to install the project:"
 	read -r install_dir
 done
 
