@@ -18,13 +18,16 @@ build_wp()
 {
 	echo "REMEMBER TO MOVE DB DUMP TO $install_dir TOO"
 
-	cd "$install_dir" || exit
 	./build_wp.sh
 }
 
-[ "$1" ] || { echo "Usage: $0 <install_dir>"; exit 1; }
-install_dir="$1"; shift
+while [ "" = "$install_dir" ]; do
+	echo "Enter the directory to install the project:"
+	read -r install_dir
+done
+
 echo "Installing in $install_dir directory"
 mkdir "$install_dir"
+cd "$install_dir" || exit
 
 clone_repo && bootstrap_wp && build_wp
