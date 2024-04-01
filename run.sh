@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 repo_name="setup-wordpress-env"
 
@@ -10,10 +10,10 @@ clone_repo()
 bootstrap_wp()
 {
 	#cp -r "$repo_name"/xdebug-files "$install_dir/"
-	cp "$repo_name"/php.ini "$install_dir/"
-	cp "$repo_name"/build_wp.sh "$install_dir/"
-	cp "$repo_name"/docker-compose.yml "$install_dir/"
-	cp "$repo_name"/Dockerfile "$install_dir/"
+	cp "$repo_name"/php.ini .
+	cp "$repo_name"/build_wp.sh .
+	cp "$repo_name"/docker-compose.yml .
+	cp "$repo_name"/Dockerfile .
 }
 
 build_wp()
@@ -27,7 +27,7 @@ install_dir=""
 
 echo "Enter the directory to install the project:"
 while [ "" = "$install_dir" ]; do
-	read install_dir
+	read -r install_dir
 done
 
 echo "Installing in $install_dir directory"
