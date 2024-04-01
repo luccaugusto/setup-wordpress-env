@@ -1,4 +1,4 @@
-version: "3.1"
+# This compose file uses a .env file and the wordpress container does not have wp-cli
 
 services:
   database:
