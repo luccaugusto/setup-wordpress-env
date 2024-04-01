@@ -132,16 +132,16 @@ get_servername()
 	echo "ServerName $servername" > servername.conf
 }
 
-update_env_file()
+update_compose_file()
 {
-	sed "s/++DB_NAME++/$db_name/" < .env > .env.aux &&
-	mv -f .env.aux .env
-	sed "s/++DB_USER++/$db_user/" < .env > .env.aux &&
-	mv -f .env.aux .env
-	sed "s/++USER_PASSWD++/$user_passwd/" < .env > .env.aux &&
-	mv -f .env.aux .env
-	sed "s/++DB_ROOT_PASSWD++/$db_root_passwd/" < .env > .env.aux &&
-	mv -f .env.aux .env
+	sed "s/++DB_NAME++/$db_name/" < docker-compose.yml > docker-compose.yml.aux &&
+	mv -f docker-compose.yml.aux docker-compose.yml
+	sed "s/++DB_USER++/$db_user/" < docker-compose.yml > docker-compose.yml.aux &&
+	mv -f docker-compose.yml.aux docker-compose.yml
+	sed "s/++USER_PASSWD++/$user_passwd/" < docker-compose.yml > docker-compose.yml.aux &&
+	mv -f docker-compose.yml.aux docker-compose.yml
+	sed "s/++DB_ROOT_PASSWD++/$db_root_passwd/" < docker-compose.yml > docker-compose.yml.aux &&
+	mv -f docker-compose.yml.aux docker-compose.yml
 }
 
 update_wp_config()
@@ -290,7 +290,7 @@ get_variables
 #servername is static for now
 #get_servername
 
-update_env_file
+update_compose_file
 update_htaccess
 update_wp_config
 show_wp_config_variables
