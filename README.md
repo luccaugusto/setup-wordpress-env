@@ -1,7 +1,7 @@
 # setup-development
 Scripts and files needed to setup a development environment using docker and docker-compose.
 
-Simply run ```curl -s https://raw.githubusercontent.com/luccaugusto/setup-wordpress-env/main/run.sh | sh``` and follow the instructions.
+Simply run ```source <(curl -s https://raw.githubusercontent.com/luccaugusto/setup-wordpress-env/main/run.sh)``` and follow the instructions.
 
 Alternatively, you can clone this repository and run the ```run.sh``` script.
 
