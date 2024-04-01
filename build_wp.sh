@@ -53,7 +53,7 @@ get_wp_repo_url()
 	[ ! "" = "$aux" ] && wp_repo_url="$aux"
 }
 
-clone_wp_repo()
+maybe_clone_wp_repo()
 {
 	get_wp_repo_url
 
@@ -271,6 +271,12 @@ show_wp_config_variables()
 	} >> wp_config_variables.txt
 }
 
+clean_up()
+{
+	rm -rf setup-wordpress-env
+	rm -f build_wp.sh
+}
+
 # RUN
 
 [ "$(basename "$0")" = "${SHELL##/bin/}" ] && {
@@ -284,7 +290,7 @@ show_wp_config_variables()
 }
 
 maybe_download_wp
-clone_wp_repo
+maybe_clone_wp_repo
 
 get_variables
 #servername is static for now
@@ -298,6 +304,7 @@ show_wp_config_variables
 echo "[ DOCKER ] Setting up containers"
 docker_setup
 
+clean_up
 echo
 echo "Now to finish your wp-config.php file, put the keys and variables"
 echo "found in the file wp_config_variables.txt in your wp-config.php file"
