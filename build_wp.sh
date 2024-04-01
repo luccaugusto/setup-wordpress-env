@@ -212,7 +212,7 @@ update_htaccess()
 import_db_dump()
 {
 	echo
-	db_dump="$(find . -name "./*.sql")"
+	db_dump="$(find . -name "*.sql")"
 	{
 		echo "[ DOCKER ] Please run the following commands to import the database:"
 		if [ "" = "$db_dump" ]
