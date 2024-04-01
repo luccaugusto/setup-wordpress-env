@@ -134,13 +134,13 @@ get_servername()
 
 update_compose_file()
 {
-	sed "s/++DB_NAME++/$db_name/" < docker-compose.yml > docker-compose.yml.aux &&
+	sed "s/++DATABASE_NAME++/$db_name/" < docker-compose.yml > docker-compose.yml.aux &&
 	mv -f docker-compose.yml.aux docker-compose.yml
-	sed "s/++DB_USER++/$db_user/" < docker-compose.yml > docker-compose.yml.aux &&
+	sed "s/++DATABASE_USER++/$db_user/" < docker-compose.yml > docker-compose.yml.aux &&
 	mv -f docker-compose.yml.aux docker-compose.yml
-	sed "s/++USER_PASSWD++/$user_passwd/" < docker-compose.yml > docker-compose.yml.aux &&
+	sed "s/++DATABASE_PASSWORD++/$user_passwd/" < docker-compose.yml > docker-compose.yml.aux &&
 	mv -f docker-compose.yml.aux docker-compose.yml
-	sed "s/++DB_ROOT_PASSWD++/$db_root_passwd/" < docker-compose.yml > docker-compose.yml.aux &&
+	sed "s/++DATABASE_ROOT_PASSWORD++/$db_root_passwd/" < docker-compose.yml > docker-compose.yml.aux &&
 	mv -f docker-compose.yml.aux docker-compose.yml
 }
 
