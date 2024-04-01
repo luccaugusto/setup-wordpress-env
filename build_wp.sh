@@ -89,10 +89,12 @@ get_variables()
 
 	echo
 
+	aux=""
 	echo "Type database name: (default wordpress-db)"
 	read -r aux
 	[ ! "" = "$aux" ] && db_name="$aux"
 
+	aux=""
 	echo "Type database username: (default $USER)"
 	read -r aux
 	[ ! "" = "$aux" ] && db_user="$aux"
@@ -107,8 +109,9 @@ get_variables()
 
 	echo
 
+	aux=""
 	echo "Type user email for wordpress $USER: (default admin@example.com)"
-	read -r user_email
+	read -r aux
 	[ ! "" = "$aux" ] && user_email="$aux"
 
 	echo
@@ -116,9 +119,7 @@ get_variables()
 	while [ "$table_prefix" = "" ]
 	do
 		echo "Type table prefix for $db_name: (example abc_)"
-		stty -echo
 		read -r table_prefix
-		stty echo
 	done
 }
 
